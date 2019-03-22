@@ -1,21 +1,22 @@
 import React ,{Component} from 'react'
 import './home.scss'
 import { Redirect } from 'react-router-dom';
-import {Form,Button} from 'react-bootstrap' 
+import BookCreateForm from './BookCreateForm'
 import { connect } from 'react-redux';
 import * as actions from 'actions';
+
 
 export  class Home extends Component {
   state = {
     submit: false,
   }
 
-  handleClick =()=>{
+   handleClick =(values)=>{
     this.props.dispatch(actions.fetchUserBook(
       {
         id:Math.floor(Math.random() * 16) + 1 ,
-        name:'Anna Karenina',
-        description:"Anna Karenina tells of the doomed . Tragedy unfolds as Anna rejects her passionless ",
+        name:values.name,
+        description:values.desc,
         image:"https://source.unsplash.com/random/360x360",
         quantity:Math.floor(Math.random() * 6) + 1 
       }
@@ -24,40 +25,28 @@ export  class Home extends Component {
       submit: true
     })
   }
-
-
+  
     render() {
       if (this.state.submit === true) {
         return <Redirect to='/listbook' />
       }
     return (
-     <div className="row" id="body-row">
-     <div class="col py-5">
-      <Form>
-       
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-             We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
-        
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        
-        <Form.Group controlId="formBasicChecbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-       
-        <Button variant="primary"  onClick={this.handleClick}>
-           Submit
-        </Button>
-    </Form>
-    </div>
-    </div>
+      <section id='newBook'>
+      <div className='bk-form'>
+        <div className='row'>
+          <div className='col-md-5'>
+            <h1 className='page-title'>Add Books</h1>
+            <BookCreateForm onSubmit={this.handleClick} />
+          </div>
+          <div className='col-md-6 ml-auto'>
+            <div className='image-container'>
+              <h2 className='catchphrase'>Hundreds of Books stired loremxvhv  vjkvbj</h2>
+              <img src={'https://source.unsplash.com/random/660x660'} alt=''/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
         
     )}
 }

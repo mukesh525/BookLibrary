@@ -2,7 +2,7 @@ import React ,{Component} from 'react'
 import { connect } from 'react-redux';
 import * as actions from 'actions';
 import {BookList} from '../book/booklist'
-
+import "./listBooking.scss"
 
 
 class BookSearchListing extends Component {
@@ -21,7 +21,7 @@ class BookSearchListing extends Component {
    render() {
   
   return <div > 
-      <section id="rentalListing">
+      <section id="bookListing">
         <h1 className="page-title">All Searched Books</h1>
         <BookList books={this.props.books.search} />
       </section>

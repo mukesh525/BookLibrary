@@ -7,7 +7,7 @@ export function BookCard(props) {
 
   return (
     <div className={props.colNum}>
-      <Link className='rental-detail-link' to={`/listbook/${book.id}`}>
+      <Link className='book-detail-link' to={`/listbook/${book.id}`}>
         <div className='card bwm-card'>
           <img className='card-img-top' src={book.image} alt={book.name}></img>
           <div className='card-block'>

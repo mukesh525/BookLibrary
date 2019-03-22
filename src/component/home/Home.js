@@ -1,12 +1,14 @@
 import React ,{Component} from 'react'
 import './home.scss'
-import CarouselPage from '../../common/Carouselpage' 
+import { Redirect } from 'react-router-dom';
 import {Form,Button} from 'react-bootstrap' 
 import { connect } from 'react-redux';
 import * as actions from 'actions';
 
 export  class Home extends Component {
-
+  state = {
+    submit: false,
+  }
 
   handleClick =()=>{
     this.props.dispatch(actions.fetchUserBook(
@@ -18,15 +20,21 @@ export  class Home extends Component {
         quantity:Math.floor(Math.random() * 6) + 1 
       }
     ));
-
+    this.setState({
+      submit: true
+    })
   }
 
 
     render() {
+      if (this.state.submit === true) {
+        return <Redirect to='/listbook' />
+      }
     return (
      <div className="row" id="body-row">
      <div class="col py-5">
       <Form>
+       
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
@@ -34,10 +42,12 @@ export  class Home extends Component {
              We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
+        
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
+        
         <Form.Group controlId="formBasicChecbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>

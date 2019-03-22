@@ -1,30 +1,37 @@
 import React ,{Component} from 'react';
-import {Container,Row,Col,Media} from 'react-bootstrap';
+import {Container,Media} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import * as actions from 'actions';
 class BookDetails extends Component {
+
+  componentWillMount() {
+    // Dispatch action
+    const bookId = this.props.match.params.id;
+    this.props.dispatch(actions.fetchBooksById(bookId,this.props.books.data));
+  }
+
+
+
     render() {
+    const book =this.props.books.book;
     return (
         <Container>
-   <Media>
-  <img
-    width={64}
-    height={64}
-    className="mr-3"
-    src="https://source.unsplash.com/random/64x64"
-    alt="Generic placeholder"
-  />
-  <Media.Body>
-    <h5>Media Heading</h5>
-    <p>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-      ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at,
-      tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-      Donec lacinia congue felis in faucibus.
-    </p>
-  </Media.Body>
-</Media>
-</Container>
+          <Media>
+          <img
+            width={164}
+            height={164}
+            className="mr-3"
+            src={book.image}
+            alt="Generic placeholder"
+          />
+          <Media.Body>
+            <h2>{book.name}</h2>
+            <p>
+              {book.description}
+            </p>
+          </Media.Body>
+        </Media>
+        </Container>
     );
         
 }

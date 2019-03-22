@@ -18,8 +18,7 @@ class BookSearchInput extends React.Component {
   handleSearch() {
     const { history } = this.props;
     const book = this.searchInput.current.value;
-
-    book ? history.push(`/rentals/${book}/listbook`) : history.push('/listbook');
+    book ? history.push(`/books/${book}/listbook`) : history.push('/listbook');
   }
 
 
@@ -30,7 +29,7 @@ class BookSearchInput extends React.Component {
                ref={this.searchInput}
                className='form-control mr-sm-2 bwm-search'
                type='search'
-               placeholder='Try "Book 1"'
+               placeholder='Try "Anna Karenina"'
                aria-label='Search'></input>
         <button onClick={() => {this.handleSearch()}}
                 className='btn btn-outline-success my-2 my-sm-0 btn-bwm-search'

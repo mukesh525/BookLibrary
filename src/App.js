@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import {Header} from './common/header';
-
+import Header from './common/header';
 import { Provider } from 'react-redux';
 import Home from './component/home/Home';
-import AboutUs from './component/Aboutus';
+import BookDetails from './component/bookdetails/BookDetails';
 import ListBook from './component/ListBook';
+import BookSearchListing from './component/bookdetails/BookSearchListing';
 const store = require('./reducers').init();
 
 class App extends Component {
@@ -15,18 +15,16 @@ class App extends Component {
        <div className="App">
         <Provider store={store}>
         <BrowserRouter>
-        <Header/>
-        {/* <div className="row" id="body-row"> */}
-         
-          {/* <div class="col py-3"> */}
-              <Switch>
-                      <Route exact path='/' render={() =>  <Redirect to='/home' /> }/>
-                      <Route exact path='/home' component={Home} />
+        <Header  props={this.props}/>
+        <Switch>
+                      <Route exact path='/' render={() =>  <Redirect to='/AddBook' /> }/>
+                      <Route exact path='/AddBook' component={Home} />
                       <Route exact path='/listbook' component={ListBook} />
-                      <Route exact path='/aboutus' component={AboutUs} />
+                      <Route exact path='/rentals/:book/listbook' component={BookSearchListing} />
+                      <Route exact path='/listbook/:id' component={BookDetails} />
+                     
               </Switch>        
-        {/* </div>
-       </div> */}
+ 
        </BrowserRouter>
        </Provider>
       </div>

@@ -9,21 +9,19 @@ export  class Home extends Component {
 
 
   handleClick =()=>{
-    this.props.dispatch(actions.fetchUserBookings(
+    this.props.dispatch(actions.fetchUserBook(
       {
-        id:Math.random(),
-        name:'book1',
-        description:"Book1",
-        quantity:3
+        id:Math.floor(Math.random() * 16) + 1 ,
+        name:'Anna Karenina',
+        description:"Anna Karenina tells of the doomed . Tragedy unfolds as Anna rejects her passionless ",
+        image:"https://source.unsplash.com/random/360x360",
+        quantity:Math.floor(Math.random() * 6) + 1 
       }
     ));
 
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps', nextProps);
-   
-}
+
     render() {
     return (
      <div className="row" id="body-row">

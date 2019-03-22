@@ -2,26 +2,16 @@ import React ,{Component} from 'react'
 import {Alert,Button,Jumbotron,Modal} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import * as actions from 'actions';
+import {BookList} from '../component/book/booklist'
  class ListBook extends Component {
 
-  componentWillReceiveProps(nextProps) {
-    debugger
-    console.log(this.state)
-    console.log('componentWillReceiveProps', nextProps);
-   }
-    
-    render() {
-    return <div > 
+ render() {
 
-      {this.props.books !== null &&
-      this.props.books.data.map((book, idx) => (
-        <Alert key={idx} variant={'primary'}>
-          This is a {book.name} alert—check it out!
-        </Alert>
-      ))} 
-     
-      
-    
+    return <div > 
+      <section id="rentalListing">
+        <h1 className="page-title">All Books</h1>
+        <BookList books={this.props.books.data} />
+      </section>
        
       </div>
         

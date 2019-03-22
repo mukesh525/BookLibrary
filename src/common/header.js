@@ -1,15 +1,21 @@
 import React from 'react';
 import {Navbar,Nav,FormControl,Button,Form} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import './header.scss';
 
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import BookSearchInput from './BookSearchInput'
+class Header extends React.Component {
 
-export function Header(props){
-    return  ( 
+
+
+
+  render() {
+     return  ( 
         <Navbar className="header" sticky={'top'} variant="dark">
         <Navbar.Brand href="#home">Book Libarary</Navbar.Brand>
         <Nav className="mr-auto">
-        <Link to="/home">
+        <Link to="/AddBook">
            <Nav.Link href="/" activeClassName="active">Add Book</Nav.Link>
         </Link>
         <Link to="/listbook">
@@ -17,12 +23,18 @@ export function Header(props){
         </Link>
          
         </Nav>
-
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-light">Search</Button>
-        </Form>
+         {this.props.location.pathname ==="/listbook" &&
+          <BookSearchInput/>
+        }
       </Navbar>
-      
-     
- )};
+      )
+    }
+  }
+
+  function mapStateToProps(state) {
+    return {
+      books: state.books
+    }
+  }
+  
+  export default withRouter(connect(mapStateToProps)(Header));

@@ -1,7 +1,8 @@
 import React ,{Component} from 'react';
 import {Container,Row,Col,Media} from 'react-bootstrap';
-
-export default class AboutUs extends Component {
+import { connect } from 'react-redux';
+import * as actions from 'actions';
+class BookDetails extends Component {
     render() {
     return (
         <Container>
@@ -28,3 +29,10 @@ export default class AboutUs extends Component {
         
 }
 }
+function mapStateToProps(state) {
+  return {
+    books: state.books
+  }
+}
+
+export default connect(mapStateToProps)(BookDetails)

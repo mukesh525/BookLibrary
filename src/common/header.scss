@@ -1,0 +1,30 @@
+@import '../index.scss';
+
+.header {
+    background-color: $primary-color;
+    
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: #525dce;
+    }
+
+    li {
+      margin: 10px 20px;
+    }
+  
+    a {
+      text-decoration: none;
+    }
+  
+    a,
+    a:visited {
+      color: #ffffff;
+    }
+  
+    a:hover {
+        color: #525dce;
+    }
+  }
+
+.header.navbar-dark .navbar-nav .nav-link:hover {
+    color: green;
+}

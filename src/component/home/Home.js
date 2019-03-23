@@ -18,7 +18,8 @@ export  class Home extends Component {
         name:values.name,
         description:values.desc,
         image:"https://source.unsplash.com/random/360x360",
-        quantity:Math.floor(Math.random() * 6) + 1 
+        quantity:values.quantity,
+        author:values.author,
       }
     ));
     this.setState({
@@ -34,7 +35,7 @@ export  class Home extends Component {
       <section id='newBook'>
       <div className='bk-form'>
         <div className='row'>
-          <div className='col-md-5'>
+          <div className='col-md-5  '>
             <h1 className='page-title'>Add Books</h1>
             <BookCreateForm onSubmit={this.handleClick} />
           </div>

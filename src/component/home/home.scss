@@ -7,7 +7,7 @@
     margin-top: 60px
 }
 .bk-form {
-    color: $main-text-gray-color;
+    color:$main-text-gray-color;
   
     h1 {
       font-weight: 700;
@@ -18,12 +18,13 @@
   
       img {
         width: 100%;
-        border-radius: 5px;
+        border-radius: 2px;
       }
     }
   
     label {
-      font-size: 12px;
+      font-size: 15px;
+     
     }
   
     .form-text {
@@ -37,7 +38,7 @@
       color: #f1f1f1;
       padding: 40px;
       background-color: rgba(0,0,0, 0.5);
-      margin-top: 50px;
+      margin-top: 80px;
       letter-spacing: 1px;
     }
   

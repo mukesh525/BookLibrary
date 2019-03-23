@@ -12,6 +12,7 @@ export function BookCard(props) {
           <img className='card-img-top' src={book.image} alt={book.name}></img>
           <div className='card-block'>
             <h4 className='card-title'>{book.name}</h4>
+            <h2 className='card-title'>Author {book.author}</h2>
             <h6 className='card-title'>{book.description}</h6>
             <p className='card-text'>Quantity {book.quantity} </p>
           </div>

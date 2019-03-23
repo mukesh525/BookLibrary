@@ -51,11 +51,10 @@ const BookCreateForm = props => {
         <div class="col-md-6">
         <Field
             name="name"
-            label="Book Name"
+            label="Name"
             component={renderField}
             validate={[ required, maxLength15 ]}
             type="text"
-            placeholder="Book Name"
            
           />
         </div>
@@ -66,10 +65,9 @@ const BookCreateForm = props => {
         <div class="col-md-6">
         <Field
             name="quantity"
-            label="Book Quantity"
+            label="Quantity"
             component={renderField}
             type="number"
-            placeholder="Quantity"
             className="form-control"
             validate={[ required ]}
             warn={tooOld}
@@ -83,9 +81,8 @@ const BookCreateForm = props => {
         <Field
             name="author"
             type="text"
-            label="Book Author"
+            label="Author"
             component={renderField}
-            placeholder="Book Author"
             className="form-control"
             validate={[ required ]}
           />
@@ -97,9 +94,8 @@ const BookCreateForm = props => {
         <Field
             name="desc"
             type="textarea"
-            label="Book Description"
+            label="Description"
             component={renderField}
-            placeholder="Book Description"
             className="form-control"
             validate={[ required ]}
           />
